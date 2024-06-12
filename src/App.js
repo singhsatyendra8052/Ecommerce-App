@@ -22,7 +22,7 @@ function App() {
         <Route
           path="*"
           element={
-            <div className="h-[50vh] text-4xl tex-bold flex flex-row justify-center items-center">
+            <div className="h-[50vh] text-4xl text-bold flex flex-row justify-center items-center">
               404 not found{" "}
             </div>
           }

@@ -4,7 +4,6 @@ import FeatureCard from "../../components/FeatureCard";
 import Hero from "../../components/Hero";
 import ProductCard from "../../components/ProductCard";
 import Products from "../../components/ProductCard";
-import Stats from "../../components/StatCard";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -35,7 +34,9 @@ const Home = () => {
       {products.length > 0 ? (
         <ProductCard products={products} />
       ) : (
-        <div>Loading.....</div>
+        <div className="text-3xl flex flex-row justify-center items-center">
+          Loading.....
+        </div>
       )}
       <Products />
     </>
