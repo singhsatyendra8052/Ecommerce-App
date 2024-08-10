@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { UserContext } from "../context/userContext";
 const navigations = [
   {
     name: "Home",
@@ -21,6 +21,27 @@ const navigations = [
 ];
 
 const Header = () => {
+  const { userdetails } = useContext(UserContext);
+  const handleSubmit = async () => {
+    try {
+      const url = "http://localhost:8000/user/logout";
+
+      const response = await fetch(url, {
+        method: "POST",
+
+        credentials: "include",
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      // setUserdetails(response.data);
+      console.log("successfully Logged Out");
+      window.location.href = "http://localhost:3000/";
+    } catch (error) {
+      console.error("Error:", error);
+      alert("There was an error. Please try again.");
+    }
+  };
   return (
     <header className=" sticky top-0 z-10 bg-white  text-gray-600 body-font shadow-lg">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -40,7 +61,7 @@ const Header = () => {
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
           </svg>
-          <span className="ml-3 text-xl">Ecommerce</span>
+          <span className="ml-3 text-xl">Clothshop</span>
         </Link>
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           {navigations.map((navigation) => {
@@ -68,6 +89,22 @@ const Header = () => {
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
         </Link>
+
+        {!userdetails ? (
+          <Link
+            to={"/login"}
+            className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0 ml-4"
+          >
+            Log In
+          </Link>
+        ) : (
+          <button
+            className="inline-flex items-center text-white bg-indigo-500 border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base mt-4 md:mt-0 ml-4"
+            onClick={handleSubmit}
+          >
+            logout
+          </button>
+        )}
       </div>
     </header>
   );

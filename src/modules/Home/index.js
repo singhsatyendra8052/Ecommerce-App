@@ -4,9 +4,13 @@ import FeatureCard from "../../components/FeatureCard";
 import Hero from "../../components/Hero";
 import ProductCard from "../../components/ProductCard";
 import Products from "../../components/ProductCard";
-
+import CarouselDefault from "../../test";
+import { UserContext } from "../../components/context/userContext";
+import { useContext } from "react";
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const { userdetails } = useContext(UserContext);
+  // console.log(userdetails);
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
@@ -21,7 +25,8 @@ const Home = () => {
 
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+      <CarouselDefault />
       <Categories />
       <div className="flex flex-col text-center w-full mt-20">
         <h2 className="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">

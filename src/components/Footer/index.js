@@ -119,7 +119,7 @@ const Footer = () => {
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
             <a className="text-gray-500">
               <svg
-                fill="currentColor"
+                fill="blue"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
@@ -131,7 +131,7 @@ const Footer = () => {
             </a>
             <a className="ml-3 text-gray-500">
               <svg
-                fill="currentColor"
+                fill="sky blue"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
@@ -144,7 +144,7 @@ const Footer = () => {
             <a className="ml-3 text-gray-500">
               <svg
                 fill="none"
-                stroke="currentColor"
+                stroke="orange"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
@@ -157,7 +157,7 @@ const Footer = () => {
             </a>
             <a className="ml-3 text-gray-500">
               <svg
-                fill="currentColor"
+                fill="blue"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
